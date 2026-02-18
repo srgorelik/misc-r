@@ -14,9 +14,9 @@
 # Args:
 #   tif.file  : path to raster
 #   band      : band number (default 1)
-#   palette   : palette name (continuous only)
-#   reverse   : reverse palette
-#   classes   : optional categorical class definitions
+#   palette   : palette name (continuous mode only)
+#   reverse   : reverse palette (continuous mode only)
+#   classes   : categorical class definitions
 #   margins   : include marginal histograms
 #
 # Returns:
