@@ -1,36 +1,47 @@
-quickmap <- function(tif.file, band = 1, palette = 'jet', reverse = F, classes = NULL, margins = F) {
-	# ------------------------------------------------------------------
-	# A quick GeoTIFF viewer using terra + rasterVis.
-	#
-	# Continuous mode:
-	#   Uses gradient palette.
-	#
-	# Categorical mode:
-	#   Supply `classes = list(list(val=..., col=..., lab=...), ...)`
-	#   No raster value scanning performed.
-	#
-	# Args:
-	#   tif.file  : path to raster
-	#   band      : band number (default 1)
-	#   palette   : palette name (continuous only)
-	#   reverse   : reverse palette
-	#   classes   : optional categorical class definitions
-	#   margins   : include marginal histograms
-	#
-	# Returns:
-	#   None. Plots raster.
-	# 
-	# Examples:
-	#   # default is continuous mode
-	#   quickmap('input.tif')
-	#
-	#   # specify class definitions to plot categorical map
-	#   quickmap('input.tif', classes = list(
-	#       list(val = 0, col = 'red', lab = 'outside'), 
-	#       list(val = 1, col = 'wheat', lab = 'inside')
-	#   ))
-	#
-	# ------------------------------------------------------------------
+# ------------------------------------------------------------------
+# quickmap()
+# 
+# Purpose:
+#   A quick GeoTIFF viewer using terra + rasterVis.
+#
+# Continuous mode:
+#   Uses gradient palette.
+#
+# Categorical mode:
+#   Supply `classes = list(list(val=..., col=..., lab=...), ...)`
+#   No raster value scanning performed.
+#
+# Args:
+#   tif.file  : path to raster
+#   band      : band number (default 1)
+#   palette   : palette name (continuous only)
+#   reverse   : reverse palette
+#   classes   : optional categorical class definitions
+#   margins   : include marginal histograms
+#
+# Returns:
+#   None. Plots raster.
+# 
+# Examples:
+#   # default is continuous mode
+#   quickmap('input.tif')
+#
+#   # specify class definitions to plot categorical map
+#   quickmap('input.tif', classes = list(
+#       list(val = 0, col = 'red', lab = 'outside'), 
+#       list(val = 1, col = 'wheat', lab = 'inside')
+#   ))
+#
+# ------------------------------------------------------------------
+
+quickmap <- function(
+	tif.file, 
+	band = 1, 
+	palette = 'jet', 
+	reverse = F, 
+	classes = NULL, 
+	margins = F
+) {
 
 	# check that raster exists
 	if (!file.exists(tif.file)) stop(sprintf('%s does not exist.', tif.file))
