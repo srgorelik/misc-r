@@ -64,7 +64,7 @@ map <- function(
 	legend = T,
 	...
 ) {
-	for (pkg in c('rasterVis', 'grid', 'colorRamps', 'viridis', 'matlab', 'RColorBrewer')) {
+	for (pkg in c('rasterVis', 'grid', 'latticeExtra', 'colorRamps', 'viridis', 'matlab', 'RColorBrewer')) {
 		require(pkg, character.only = T, quietly = T, warn.conflicts = F)
 	}
 	col.pal <- switch(
